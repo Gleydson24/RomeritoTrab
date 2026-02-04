@@ -1,6 +1,6 @@
 # Romerito Trabalho
 
-O tema sugerido para o seu trabalho é: "OrçaTech: Sistema de Orçamentos para Freelancers".
+O tema do nosso trabalho é: "OrçaTech: Sistema de Orçamentos para Freelancers".
 Aqui está uma explicação detalhada sobre o que é esse sistema e como ele funciona
 1. O que é o sistema?
 É uma ferramenta web simplificada voltada para profissionais autônomos (como desenvolvedores, designers ou editores) que precisam criar uma lista de custos para um cliente.
