@@ -1,7 +1,5 @@
 const resumo = [];
 
-
-
 const dadosSalvos = localStorage.getItem("resumo");
 if (dadosSalvos) {
     resumo.push(...JSON.parse(dadosSalvos));
