@@ -37,7 +37,8 @@ function pegarValores(){
     resumo.push(orcamentoUnitario)
     localStorage.setItem("resumo", JSON.stringify(resumo));
     
-    adicionarLinha(orcamentoUnitario);
+    const index = resumo.length - 1;
+    adicionarLinha(orcamentoUnitario, index);
     atualizarCalculos();
 };
 
@@ -65,7 +66,7 @@ function atualizarCalculos(){
         `R$ ${mediaValorUnitario.toFixed(2)}`;
     }
 
-function adicionarLinha(orcamentoUnitario) {
+function adicionarLinha(orcamentoUnitario, index) {
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
@@ -74,11 +75,27 @@ function adicionarLinha(orcamentoUnitario) {
         <td>${orcamentoUnitario.quantidade}</td>
         <td>R$ ${orcamentoUnitario.valorUnitario.toFixed(2)}</td>
         <td>R$ ${orcamentoUnitario.subTotal.toFixed(2)}</td>
+        <td><button class="btn-apagar" >Excluir</button></td>
         `;
-
         tabela.appendChild(tr);
+
+        tr.querySelector(".btn-apagar").addEventListener("click", function() {
+        apagarItem(index);
+        });
+
         }
 
+function apagarItem(index) {
+    resumo.splice(index, 1);
+    localStorage.setItem("resumo", JSON.stringify(resumo));
+    atualizarTabela(); 
+    atualizarCalculos();
+}
+
+function atualizarTabela() {
+    tabela.innerHTML = ""; // limpa a tabela
+    resumo.forEach((item, index) => adicionarLinha(item, index));
+}
+
 tabela.innerHTML = "";
-resumo.forEach(item => adicionarLinha(item));
-atualizarCalculos()
+atualizarTabela()
